@@ -1,3 +1,9 @@
+# My first ever react project
+
+My first ever react app to test my skills learned on udemy course.
+I wrote this code all by myself this is not a course project and I know the project is simple but it's the first react project 😎
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
