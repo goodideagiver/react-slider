@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Card from '../Card/Card';
 import Slide from '../Slide/Slide';
+import SliderControls from './SliderControls';
 
 import styles from './Slider.module.css';
 
@@ -11,7 +12,14 @@ const Slider = props => {
 
 	const renderSlide = index => {
 		const { title, content, author } = slidesData[activeSlideIndex];
-		return <Slide title={title} content={content} author={author} />;
+		return (
+			<Slide
+				key={Math.random()}
+				title={title}
+				content={content}
+				author={author}
+			/>
+		);
 	};
 
 	const changeSlideHandler = direction => {
@@ -36,14 +44,10 @@ const Slider = props => {
 	return (
 		<Card className={styles.slider}>
 			{renderSlide(activeSlideIndex)}
-			<div className={styles.actions}>
-				<button className={styles.button} onClick={prevSlide}>
-					Prev
-				</button>
-				<button className={styles.button} onClick={nextSlide}>
-					Next
-				</button>
-			</div>
+			<SliderControls
+				prevSlideBtnHandler={prevSlide}
+				nextSlideBtnHandler={nextSlide}
+			/>
 		</Card>
 	);
 };
