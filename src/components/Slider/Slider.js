@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // import { CSSTransitionGroup } from 'react-transition-group';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import Card from '../Card/Card';
 import Slide from '../Slide/Slide';
@@ -46,11 +46,7 @@ const Slider = props => {
 
 	return (
 		<Card className={styles.slider}>
-			<CSSTransition
-				transitionName='slideAnim'
-				transitionEnterTimeout={500}
-				transitionLeaveTimeout={500}
-			>
+			<CSSTransition classNames='slideAnim' timeout={500}>
 				{renderSlide(activeSlideIndex)}
 			</CSSTransition>
 			<SliderControls
