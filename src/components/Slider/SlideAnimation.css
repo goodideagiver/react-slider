@@ -1,0 +1,17 @@
+.slideAnim-enter {
+	opacity: 0.01;
+}
+
+.slideAnim-enter.slideAnim-enter-active {
+	opacity: 1;
+	transition: opacity 500ms ease-in;
+}
+
+.slideAnim-leave {
+	opacity: 1;
+}
+
+.slideAnim-leave.slideAnim-leave-active {
+	opacity: 0.01;
+	transition: opacity 300ms ease-in;
+}

@@ -1,10 +1,13 @@
 import { useState } from 'react';
+// import { CSSTransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 import Card from '../Card/Card';
 import Slide from '../Slide/Slide';
 import SliderControls from './SliderControls';
 
 import styles from './Slider.module.css';
+import './SlideAnimation.css';
 
 const Slider = props => {
 	const { slidesData } = props;
@@ -43,7 +46,13 @@ const Slider = props => {
 
 	return (
 		<Card className={styles.slider}>
-			{renderSlide(activeSlideIndex)}
+			<CSSTransition
+				transitionName='slideAnim'
+				transitionEnterTimeout={500}
+				transitionLeaveTimeout={500}
+			>
+				{renderSlide(activeSlideIndex)}
+			</CSSTransition>
 			<SliderControls
 				prevSlideBtnHandler={prevSlide}
 				nextSlideBtnHandler={nextSlide}
