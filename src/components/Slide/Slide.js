@@ -1,4 +1,5 @@
 import styles from './Slide.module.css';
+import './SlideAnimation.css';
 
 const Slide = props => {
 	const { title, content, author } = props;

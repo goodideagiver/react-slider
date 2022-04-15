@@ -1,6 +1,5 @@
 import { useState } from 'react';
 // import { CSSTransitionGroup } from 'react-transition-group';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import Card from '../Card/Card';
 import Slide from '../Slide/Slide';
@@ -13,17 +12,7 @@ const Slider = props => {
 	const { slidesData } = props;
 	const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
-	const renderSlide = index => {
-		const { title, content, author } = slidesData[activeSlideIndex];
-		return (
-			<Slide
-				key={Math.random()}
-				title={title}
-				content={content}
-				author={author}
-			/>
-		);
-	};
+	const { title, content, author } = slidesData[activeSlideIndex];
 
 	const changeSlideHandler = direction => {
 		let changeToSlide;
@@ -46,9 +35,12 @@ const Slider = props => {
 
 	return (
 		<Card className={styles.slider}>
-			<CSSTransition classNames='slideAnim' timeout={500}>
-				{renderSlide(activeSlideIndex)}
-			</CSSTransition>
+			<Slide
+				key={Math.random()}
+				title={title}
+				content={content}
+				author={author}
+			/>
 			<SliderControls
 				prevSlideBtnHandler={prevSlide}
 				nextSlideBtnHandler={nextSlide}
