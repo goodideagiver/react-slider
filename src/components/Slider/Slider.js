@@ -15,19 +15,19 @@ const Slider = props => {
 	const { title, content, author } = slidesData[activeSlideIndex];
 
 	const changeSlideHandler = direction => {
-		let changeToSlide;
 		if (direction === 'prev') {
-			changeToSlide = activeSlideIndex - 1;
-		} else {
-			changeToSlide = activeSlideIndex + 1;
+			setActiveSlideIndex(
+				activeSlideIndex === 0
+					? slidesData.length - 1
+					: activeSlideIndex - 1
+			);
+		} else if (direction === 'next') {
+			setActiveSlideIndex(
+				activeSlideIndex === slidesData.length - 1
+					? 0
+					: activeSlideIndex + 1
+			);
 		}
-		if (changeToSlide > slidesData.length - 1) {
-			changeToSlide = 0;
-		}
-		if (changeToSlide < 0) {
-			changeToSlide = slidesData.length - 1;
-		}
-		setActiveSlideIndex(changeToSlide);
 	};
 
 	const prevSlide = () => changeSlideHandler('prev');
